@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="RexModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ORDER_DETAIL">
+          <Key>
+            <PropertyRef Name="Order_Number" />
+            <PropertyRef Name="Line_Number" />
+          </Key>
+          <Property Name="Order_Number" Type="char" MaxLength="35" Nullable="false" />
+          <Property Name="Line_Number" Type="char" MaxLength="6" Nullable="false" />
+          <Property Name="Part_Number" Type="char" MaxLength="40" Nullable="false" />
+          <Property Name="Sec_Part_Number" Type="char" MaxLength="40" />
+          <Property Name="Lot_Number" Type="char" MaxLength="40" />
+          <Property Name="User_Field" Type="char" MaxLength="70" Nullable="false" />
+          <Property Name="Order_Quantity" Type="int" Nullable="false" />
+          <Property Name="Alloc_Quantity" Type="int" Nullable="false" />
+          <Property Name="Picked_Quantity" Type="int" Nullable="false" />
+          <Property Name="Completed_Date" Type="datetime" />
+          <Property Name="Uploaded_Date" Type="datetime" />
+          <Property Name="Uploaded_Flag" Type="bit" Nullable="false" />
+          <Property Name="User_Name" Type="char" MaxLength="40" />
+          <Property Name="Download_Rec_Identity" Type="int" />
+        </EntityType>
+        <EntityContainer Name="RexModelStoreContainer">
+          <EntitySet Name="ORDER_DETAIL" EntityType="Self.ORDER_DETAIL" Schema="rex" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RexModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ORDER_DETAIL">
+          <Key>
+            <PropertyRef Name="Order_Number" />
+            <PropertyRef Name="Line_Number" />
+          </Key>
+          <Property Name="Order_Number" Type="String" MaxLength="35" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Line_Number" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Part_Number" Type="String" MaxLength="40" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Sec_Part_Number" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
+          <Property Name="Lot_Number" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
+          <Property Name="User_Field" Type="String" MaxLength="70" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Order_Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Alloc_Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Picked_Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Completed_Date" Type="DateTime" Precision="3" />
+          <Property Name="Uploaded_Date" Type="DateTime" Precision="3" />
+          <Property Name="Uploaded_Flag" Type="Boolean" Nullable="false" />
+          <Property Name="User_Name" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
+          <Property Name="Download_Rec_Identity" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="RexEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ORDER_DETAIL" EntityType="Self.ORDER_DETAIL" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RexModelStoreContainer" CdmEntityContainer="RexEntities">
+          <EntitySetMapping Name="ORDER_DETAIL">
+            <EntityTypeMapping TypeName="RexModel.ORDER_DETAIL">
+              <MappingFragment StoreEntitySet="ORDER_DETAIL">
+                <ScalarProperty Name="Order_Number" ColumnName="Order_Number" />
+                <ScalarProperty Name="Line_Number" ColumnName="Line_Number" />
+                <ScalarProperty Name="Part_Number" ColumnName="Part_Number" />
+                <ScalarProperty Name="Sec_Part_Number" ColumnName="Sec_Part_Number" />
+                <ScalarProperty Name="Lot_Number" ColumnName="Lot_Number" />
+                <ScalarProperty Name="User_Field" ColumnName="User_Field" />
+                <ScalarProperty Name="Order_Quantity" ColumnName="Order_Quantity" />
+                <ScalarProperty Name="Alloc_Quantity" ColumnName="Alloc_Quantity" />
+                <ScalarProperty Name="Picked_Quantity" ColumnName="Picked_Quantity" />
+                <ScalarProperty Name="Completed_Date" ColumnName="Completed_Date" />
+                <ScalarProperty Name="Uploaded_Date" ColumnName="Uploaded_Date" />
+                <ScalarProperty Name="Uploaded_Flag" ColumnName="Uploaded_Flag" />
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+                <ScalarProperty Name="Download_Rec_Identity" ColumnName="Download_Rec_Identity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
