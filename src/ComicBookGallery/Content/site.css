@@ -42,3 +42,12 @@ textarea {
 .series-list li:last-child{
   border: none;
 }
+.totecell {
+    width: 60px;
+    max-width: 60px;
+    height: 60px;
+    border-color: black;
+    background-color: blue;
+    margin: 5px;
+    display:block;
+}
