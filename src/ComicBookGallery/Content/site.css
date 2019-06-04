@@ -47,7 +47,8 @@ textarea {
     max-width: 60px;
     height: 60px;
     border-color: black;
-    background-color: blue;
+    border-width: thick;
+    background-color: white;
     margin: 5px;
-    display:block;
+    display:inline-block;
 }
