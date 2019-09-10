@@ -34,7 +34,6 @@ namespace ComicBookGallery.Controllers
            //A strongly typed view is an MVC view that is associtated with a speficis type, a strongly typed view exposes the model instance to intstance model property
             return View(comicBook);
 
-
         }
 
         ComicBookGallery.Models.RexEntities db = new ComicBookGallery.Models.RexEntities();
