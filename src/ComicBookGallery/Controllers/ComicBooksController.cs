@@ -1,4 +1,5 @@
-﻿using ComicBookGallery.Models;
+﻿using ComicBookGallery.Data;
+using ComicBookGallery.Models;
 using DevExpress.Web.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,24 +11,21 @@ namespace ComicBookGallery.Controllers
 {
     public class ComicBooksController : Controller
     {
-        public ActionResult Detail()
+        private ComicBookRepository _comicBookRepository = null;
+
+        //we need an instance of our respository.
+        //add a constructor and instanciate our respoitory  within it
+        //remember constructors are special methods that are called when an instance of our class is being instantiated
+        //we use constructors to initialize instance members which is what we are doing our with respoitory field
+        //constructier can be identitfied by thier lack of return type in their name which matches the class name. 
+        public ComicBooksController()
         {
-            var comicBook = new ComicBook()
+            _comicBookRepository = new ComicBookRepository();
+        }
 
-            {
-                SeriesTitle = "The Amazing Spider-Man",
-                IssueNumber = 700,
-                DescriptionHtml = "<p>Final issue! Witness the final hours of Doctor Octopus' life and his one, last, great act of revenge! Even if Spider-Man survives... <strong>will Peter Parker?</strong></p>",
-                Artists = new Artist[]
-
-                {
-                    new Artist() { Name = "Dan Slott", Role = "Script" },
-                    new Artist() { Name = "Humberto Ramos", Role = "Pencils" },
-                    new Artist() { Name = "Victor Olazaba", Role = "Inks" },
-                    new Artist() { Name = "Edgar Delgado", Role = "Colors" },
-                    new Artist() { Name = "Chris Eliopoulos", Role = "Letters" }
-                }
-            };
+        public ActionResult Detail(int id)
+        {
+            var comicBook = _comicBookRepository.GetComicBook(id);
 
 
            //strongly typed view passing the comic book model instance to the view
