@@ -18,10 +18,20 @@ namespace ComicBookGallery.Controllers
         //remember constructors are special methods that are called when an instance of our class is being instantiated
         //we use constructors to initialize instance members which is what we are doing our with respoitory field
         //constructier can be identitfied by thier lack of return type in their name which matches the class name. 
+
+            //THIS IS A CONSTRUCTOR
         public ComicBooksController()
         {
             _comicBookRepository = new ComicBookRepository();
         }
+
+        public ActionResult Index()
+        {
+            var comicBooks = _comicBookRepository.GetComicBooks();
+
+            return View(comicBooks);
+        }
+
         //EventHandlerTaskAsyncHelper question mark next to int lets the value be null if id is not and int
         public ActionResult Detail(int? id)
         {
