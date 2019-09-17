@@ -22,10 +22,15 @@ namespace ComicBookGallery.Controllers
         {
             _comicBookRepository = new ComicBookRepository();
         }
-
-        public ActionResult Detail(int id)
+        //EventHandlerTaskAsyncHelper question mark next to int lets the value be null if id is not and int
+        public ActionResult Detail(int? id)
         {
-            var comicBook = _comicBookRepository.GetComicBook(id);
+            //defensive coding
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+            var comicBook = _comicBookRepository.GetComicBook(id.Value);
 
 
            //strongly typed view passing the comic book model instance to the view
