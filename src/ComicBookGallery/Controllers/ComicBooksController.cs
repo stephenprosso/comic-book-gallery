@@ -28,7 +28,7 @@ namespace ComicBookGallery.Controllers
         public ActionResult Index()
         {
             var comicBooks = _comicBookRepository.GetComicBooks();
-
+            //passing Comic Books tothe view allows our array to be available in the view
             return View(comicBooks);
         }
 
